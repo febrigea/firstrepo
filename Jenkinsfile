@@ -4,18 +4,17 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				bat 'make'
+				echo 'Building..'
 			}
 		}
 		stage('Test') {
 			steps {
-				bat 'make check'
-				junit 'reports/**/*.xml'
+				echo 'Testing..'
 			}
 		}
 		stage('Deploy') {
 			steps {
-				bat 'make publibat'
+				echo 'Deploying....'
 			}
 		}
 	}
@@ -23,13 +22,12 @@ pipeline {
 // Script //
 node {
 	stage('Build') {
-		bat 'make'
+		echo 'Building....'
 	}
 	stage('Test') {
-		bat 'make check'
-		junit 'reports/**/*.xml'
+		echo 'Building....'
 	}
 	stage('Deploy') {
-		bat 'make publibat'
+		echo 'Deploying....'
 	}
 }
